@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	.buttons {
+	    background-color : #f6d6d9;
+	    font-family : 'EB Garamond', serif;
+	    border-color : #DBBABD;
+	    text-align : center;
+	    display : inline-block;
+	    cursor: pointer;
+	    border-radius : 0.8vw;
+	    border-width: 0.4em;
+	    color : #aaaaaa;
+	    padding: 1.5vw;
+	    font-size: 1.3vw;
+	    margin-top: -0.5em;
+	    }
+
+	.spacing {
+		margin-left: 15vw;
+	}
+
+	.spacing-from-title {
+		margin-left: 6.5vw;
+	}
+
+	.title-text {
+	    color : #aaaaaa;
+	    text-align: left;
+	    font-size: 2.5vw;
+	    margin-left: 2em;
+	}
+
+	#hi {
+	    position: absolute;
+		top: 2.7%;
+		left: 20%;
+	}
+
+	.circle {
+		height: 10em;
+		width: 10em;
+		background-color: rgb(251, 202, 60);
+		border-radius: 50%;
+		display: inline-block;
+		float: right;
+		margin-right: 5%;
+	}
+
+	.cheek {
+		height: 5em;
+		width: 10em;
+		background-color: rgb(251, 202, 60);
+		border-radius: 50%;
+		position: absolute;
+		margin-top: 5em;
+		border-color: rgb(225, 151, 32);
+	}
+
+	.right-eye {
+		height: 2em;
+		width: 2em;
+		background-color: rgb(0, 0, 0);
+		border-radius: 50%;
+		position: absolute;
+		margin-top: 3.7em;
+		margin-left: 6.5em;
+	}
+
+	.left-eye {
+		height: 2em;
+		width: 2em;
+		background-color: rgb(0, 0, 0);
+		border-radius: 50%;
+		position: absolute;
+		margin-top: 3.7em;
+		margin-left: 1.5em;
+	}
+
+	.snout {
+		height: 0.3em;
+		width: 0.7em;
+		background-color: rgb(0, 0, 0);
+		border-radius: 50%;
+		position: absolute;
+		margin-left: 4.7em;
+		margin-top: 5.5em;
+	}
+
+	.right-eye-highlight {
+		height: 0.7em;
+		width: 0.7em;
+		border-radius: 50%;
+		background-color: rgb(255, 255, 255);
+		position: absolute;
+		margin-left: 6.8em;
+		margin-top: 4em;
+	}
+
+	.left-eye-highlight {
+		height: 0.7em;
+		width: 0.7em;
+		border-radius: 50%;
+		background-color: rgb(255, 255, 255);
+		position: absolute;
+		margin-left: 2.5em;
+		margin-top: 4em;
+	}
+
+	#left-smile {
+		font-size: 2.5em;
+		color: rgb(0, 0, 0);
+		transform: rotate(-110deg);
+		margin-right: 1.8em;
+		margin-top: 1.5em;
+	}
+
+	#right-smile {
+		font-size: 2.5em;
+		color: rgb(0, 0, 0);
+		transform: rotate(80deg);
+		margin-left: 1.57em;
+		margin-top: -0.25em;
+	}
+
+	.right-cheek {
+		height: 2em;
+		width: 2em;
+		background-color: rgb(246, 45, 20);
+		border-radius: 50%;
+		position: absolute;
+		margin-left: 8em;
+		margin-top: 6.3em;
+		z-index: 1;
+	}
+
+	.left-cheek {
+		height: 2em;
+		width: 2em;
+		background-color: rgb(246, 45, 20);
+		border-radius: 50%;
+		position: absolute;
+		margin-top: 6.3em;
+
+	}
+
+	#right-ear {
+		height: 10em;
+		width: 3em;
+		background-color: rgb(251, 202, 60);
+		border-radius: 50%;
+		position: absolute;
+		margin-left: 9em;
+		margin-top: -7em;
+		transform: rotate(40deg);
+	}
+
+	.ear-animation {
+		animation-name: flippy;
+		animation-duration: 4s;
+		animation-iteration-count: infinite;
+		animation-direction: alternate;
+		animation-timing-function: ease-in-out; 
+	}
+
+	@keyframes flippy{
+		0%   {transform: rotate(0deg);}
+	    50%  {transform: rotate(7deg);}
+	    100%  {transform: rotate(0deg);}
+	}  
+
+	#left-ear {
+		height: 10em;
+		width: 3em;
+		background-color: rgb(251, 202, 60);
+		border-radius: 50%;
+		position: absolute;
+		margin-top: -7em;
+		transform: rotate(-10deg);
+		margin-left: -0.5em;
+	}
+
+	.right-ear-black {
+		height: 5em;
+		width: 2.3em;
+		border-radius: 95%;
+		position: absolute;
+		background-color: black;
+		transform: rotate(40deg);
+		margin-left: 11.2em;
+		margin-top: -7em;
+	}
+
+	.left-ear-black {
+		height: 5em;
+		width: 2.3em;
+		border-radius: 95%;
+		position: absolute;
+		background-color: black;
+		transform: rotate(-10deg);
+		margin-top: -7.7em;
+		margin-left: -0.8em;
+	}
+
+	.head-shadow {
+		height: 2em;
+		width: 4em; 
+		border-radius: 50%;
+		margin-left: 1.1em;
+		margin-top: -1.5em;
+		background-color: rgb(225, 151, 32);
+		position: absolute;
+		margin-top: 9em;
+		margin-left: 3em;
+	}
+
+	#pikachu-body {
+		border-bottom: 10.5em solid rgb(251, 202, 60);
+		border-left: 2em solid transparent;
+		border-right: 2em solid transparent;
+		height: 15em;
+		width: 8em;
+		margin-top: -5.5em;
+		margin-left: -1em;
+		position: absolute;
+		z-index: -1;
+	}
+
+	.right-leg {
+		background-color: rgb(251, 202, 60);
+		height: 5em;
+		width: 4.5em;
+		border-radius: 50%;
+		border-width: 0.2vw;
+		margin-left: 7em;
+		margin-top: 0.7em;
+		border-style: solid;
+		border-color: rgb(225, 151, 32);
+		position: absolute;
+	}
+
+	.left-leg {
+		background-color: rgb(251, 202, 60);
+		height: 4.5em;
+		width: 4.5em;
+		border-radius: 50%;
+		border-width: 0.2vw;
+		border-style: solid;
+		border-color: rgb(225, 151, 32);
+		margin-top: -5.3em;
+		margin-left: -1.5em;
+		position: absolute;
+	}
+
+	.right-foot {
+		height: 6em;
+		width: 1.5em;
+		border-radius: 89%;
+		background-color: rgb(251, 202, 60);
+		margin-left: 11em;
+		margin-top: 4em;
+		transform: rotate(25deg);
+		z-index: 1;
+		border-color: rgb(225, 151, 32);
+		border-style: solid;
+		border-width: 0.2vw;
+	}
+	
+	.left-foot {
+		height: 6em;
+		width: 1.5em;
+		border-radius: 89%;
+		background-color: rgb(251, 202, 60);
+		transform: rotate(-200deg);
+		z-index: 1;
+		border-color: rgb(225, 151, 32);
+		border-style: solid;
+		border-width: 0.2vw;
+		margin-top: -6.2em;
+		margin-left: -.8em;
+	}
+
+	.left-up-arm {
+		height: 9em;
+		width: 3.8em;
+		background-color: rgb(251, 202, 60);
+		border-radius: 80%;
+		transform: rotate(130deg);
+		margin-top: -17em;
+		margin-left: -2em;
+		border-color: rgb(225, 151, 32);
+	}
+
+	#left-wave {
+		animation-name: wave;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		animation-direction: alternate;
+		animation-timing-function: ease;
+	}
+
+	@keyframes wave {
+		0%   {transform: rotate(0deg);}
+	    50%  {transform: rotate(10deg);}
+	    100%  {transform: rotate(0deg);}
+	}
+
+	.right-arm {
+		height: 7.5em;
+		width: 3.5em;
+		background-color: rgb(251, 202, 60);
+		border-radius: 80%;
+		transform: rotate(10deg);
+		border-color: rgb(225, 151, 32);
+		z-index: -1;
+		margin-top: -5em;
+		margin-left: 6.7em;
+	}
+
+	.text {
+		font-size: 1.3em;
+		font-family: 'Merriweather', serif !important;
+		color: #aaaaaa;
+	}
+
+	#wrapp {
+		overflow-wrap: break-word;
+	}
+
+	.text-len {
+		width: 25vw;
+	}
+
+	</style>
+</head>
+<body>
+	<h1 class="title-text"><em>☆Oasis☆<em></h1>
+	<span id = "hi">
+	<button class="buttons spacing-from-title" onclick = "render()">Rirakkisu</button>
+	<!-- <button class="buttons spacing"><a href="file:///D:/Sublime%20Text%203/helpOasisWebsite.html"></a>Enjo</button> -->
+	
+	<div id="wrapp" class="text-len">
+		<p id= "demo" class="text"></p>
+	</div>
+	
+	</span>
+	<span id="positioning">
+	<div class="circle">
+		<div id="pikachu-body"></div>
+		<div class="head-shadow"></div>
+		<div class="cheek"></div>
+		<div class="right-cheek"></div>
+		<div class="left-cheek"></div>
+		<div class="ear-animation">
+			<div id="right-ear"></div>
+			<div class="right-ear-black"></div>
+		</div>
+		<div class="ear-animation">
+			<div id="left-ear"></div>
+			<div class="left-ear-black"></div>
+		</div>
+		
+		<div>
+			<div class="right-eye"></div>
+		</div>
+
+		<div class="left-eye"></div>
+		<div class="snout"></div>
+		<div class="right-eye-highlight"></div>
+		<div class="left-eye-highlight"></div>
+		<p id="left-smile">(</p>
+		<p id="right-smile">)</p>
+		<div>
+			<div class="right-leg"></div>
+			<div class="right-foot"></div>
+		</div>
+		<div class="left-leg"></div>
+		<div class="left-foot"></div>
+		<div id="left-wave">
+			<div class="left-up-arm"></div>
+		</div>
+		<div class="right-arm"></div>
+	</div>
+	</span>
+	<script>
+		var a = "Hey, you! Over there! Try out the game 'you left me'- you can download it, or, of course, watch other people play the game- I especially like Markiplier's view, quite inspiring. 'It's hard to sleep when your mind is at war with your mind'. Keep pushing, tiger! Figure out the meaning of the game, either from watching the video or playing the game itself (the video already 'shows' what it means, but there are multiple messages). Love you <3, I hope I get to see you for another day. Thank you for still living.";
+
+		var b = "Hello, lovely person of the 7 billion of the world. YOU are 1 in a 7 billion. Want to know how big a billion is? 7 000 000 00. Oops- I missed a zero. Here, 7 000 000 000. No one would be able to replace you, you are SUCH a gem in this universe. If you did decide to leave this corrupt Earth, want to know how many peoples' hearts would shatter into pieces, just like glass? Tons- your family, your friends, your pets, everyone would miss you. I would miss you, forever. As I've stated before, we are very delicate, we can shatter in just mere miliseconds. You wanna know why this is the absolute lowest of lows? It's because the gods up above are wanting to give you a beautiful, carefree life- although it comes at a price. Only good things can happen when bad things happen, too. Like the rainbow after the thunderstorm. Nobody has the right to deny your values. YOU *ARE* the protagonist. Just live without pushing yourself too hard. Thank you for still living.";
+
+		var c = "You're still here? C'mon! Go outside, take a walk- Wear a mask, protect yourself and family, then go clear your mind out. Agoraphobic? Lockdown? No problem! Go take a drink of water, write everything on a piece of paper or journal, and let all your feelings out. Everyone deserves a break of being the cheerful, happiest they could be, right? So just let it all out. Find new hobbies, distract yourself from your sufferings. Talk to someone, it doesn't matter if they are also dealing with depression, anxiety, anything, really. You guys will be able to go through this *together*. No one can deal with this villain all by themselves. I'm with you, too. I'm here with you, even if we live on different sides of the world. I hope you'll be able to live freely forever. Thank you for still living.";
+
+		var d = "No one can truly understand your own pain. Although they still try to help. You will always be able to love better, as you will appreciate much more by staying in the darkness.";
+
+		var e = "'Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma – which is living with the results of other people's thinking.' -Steve Jobs";
+
+		var f = "'If life were predictable it would cease to be life, and be without flavor.' -Eleanor Roosevelt";
+
+		var g = "'Insanity Is Doing the Same Thing Over and Over Again and Expecting Different Results'- Albert Einstein. I'm sure you've heard of it thousands of times, but it's incredibly true- if you keep dilly-dallying singing without thinking, you won't improve nearly as fast as the person next to you. There is a key for everything, including people. It's hard to socialize, especially now that we're in lockdown. It's ok. If they find you weird, or judge you in a negative way, they're not worth befriending. If you do, you'll always live with the thought that at any time, they can turn their backs on you and leave you in the dust. It's better to get good friends- they come with time. Patience is key. I hope you will live freely and happily forever.";
+
+		var h = "To everyone, who is trying their best to keep on breathing. I hope you’ll be able to live freely forever. The single voice that supports you from the back. Not those sentences such as “Cheer up.” It’s the grace from “I’m with you.” It’s okay.  You can cry like you are dying. When you get furious, just let it out. You are the protagonist.  Uniqueness will come up eventually. Just live, without pushing yourself too hard. Even if no one understands you, Your “love” is the source of your happiness, isn’t it? Keep on chasing after it, Failure is also a lesson to learn, isn’t it? Nobody has the right to deny your values. Nobody can criticize your will to die or give up. But if it makes you suffer, quit it. At that time, you don’t need to act strong, just get sick about it. Thanks for still living. I hope I can be with you tomorrow, too. To everyone, who is trying their best to keep on breathing. I hope you’ll be able to live freely forever. The single voice that supports you from the back. Not those sentences such as “Cheer up.” It’s the grace from “I’m with you.” It’s okay. You can cry like you are dying. When you get furious, just let it out. You are the protagonist.  Uniqueness will come up eventually. Just live, without pushing yourself too hard.";
+
+		var i = "Those terrible days, the swears from others, Even if you got dumped, the world still moves on. Being fooled, being abandoned. Ain’t that fine?  As long as you’re enjoying the moment right now. It’s okay to be unfaithful!  Talk about all your true feelings! Welp, I don’t care shit about anything in life! Make you smile, make you find your dream. Cuz you aren’t having enough “life” yet, aren’t you? If they deny your personality, Just fake your smile and deceive them. Though your pain is piling up. “I can't stand with it anymore.” I know, even though you’ve never said it. Those rage and depression that you can’t help, Just leave them to the rhythm! I won't let it go. The story of “the bad example”. Destroy the world filled with lies.Hey, just draw the correct answer of your own. You smiled, because of my hug sent by the rhythm. Those terrible days, the swears from others, Even if you got dumped, the world still moves on. Being fooled, being abandoned. Ain’t that fine?  As long as you’re enjoying the moment right now. It’s okay to be unfaithful!  Talk about all your true feelings! Welp, I don’t care shit about anything in life! Make you smile, make you find your dream. Let’s become happy AF together. - It's hard to live.";
+
+		var j = "Let me be real with you for this one message, please- I honestly do not think that I am a good 'therapist' or 'directioner' for other people- I'm quite confusing and I can see that I've changed- I usually am really 'harsh' or another word to describe it. It's just that I hate lying, especially when talking about mental health. I really don't know if it's good for your health. That's why I've been taking MANY, and I really mean MANY, lyrics from smarter people like Takayan. He's a life saver to me, he is easy to relate to for mental health, etc- plus he cinnamon roll :3. HE REACHED 1 MILL TOO :D. To my dearest, I love you so much. You are family to me.";
+
+		var k = "Self-indulgent pikachu --> He's here to be with you at your lowest. He will never leave your side- if not he's getting a beating. If anything bad happens, you know what to do. Call (okok pls text my parents hate calls) me and tell me if he's been a gud boi.";
+		
+		var l = "beby";
+
+		var arr = [a, b, c, d, e, f, g, h, i, j, k, l];
+		function render() {
+			let randomIndex = Math.floor(Math.random() * 12);
+			document.getElementById('demo').innerHTML = arr[randomIndex]
+		}
+
+	</script>
+</body>
+</html>
